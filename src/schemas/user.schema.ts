@@ -31,3 +31,6 @@ const createUserOpts = {
     },
     handler: createUserController
 }
+
+
+export {createUserOpts}

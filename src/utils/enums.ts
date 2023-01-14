@@ -1,3 +1,4 @@
-export enum userPayload {
-    HOME = '/'
+export enum userEndpoints {
+    HOME = '/',
+    USERS = '/users',
 }
