@@ -1,7 +1,6 @@
 import { UserModel } from "../models/users.model";
-
 export const createUserController = async(req, reply) => {
-    try {
+    try {        
         const response = await UserModel.postCreateUser(req.body);
         reply.code(201).send(response);
     } catch (error) {
