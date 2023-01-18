@@ -6,4 +6,4 @@ const usersRoutes = (fastify, opts, done) => {
     done()
 }
 
-module.exports = {usersRoutes}
+module.exports = usersRoutes

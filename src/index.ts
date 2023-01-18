@@ -14,19 +14,20 @@ fastify.register(require('@fastify/swagger'), {
     }
 })
 
-fastify.register(require('./routes/school.routes'))
+fastify.register(require('./routes/school.routes'), {prefix: 'api/v1'})
 
-AppDataSource.initialize().then(async () => {
 
-    const start = async () => {
-        try {
-          await fastify.listen({ port:  PORT})
-        } catch (err) {
-          fastify.log.error(err)
-          process.exit(1)
-        }
-      }
-      start()
-    console.log("connected!!")
+const start = async () => {
+  try {
+    await fastify.listen({ port:  PORT})
+    AppDataSource.initialize().then(async () => {
 
-}).catch(error => console.log(error))
+      console.log("connected!!")
+  
+  }).catch(error => console.log(error))
+  } catch (err) {
+    fastify.log.error(err)
+    process.exit(1)
+  }
+}
+start()

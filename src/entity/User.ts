@@ -27,6 +27,6 @@ export class User {
     @CreateDateColumn({type: Date})
     createdAt: Date
 
-    @Column({type: Date})
+    @UpdateDateColumn({type: Date})
     updatedAt: Date
 }
