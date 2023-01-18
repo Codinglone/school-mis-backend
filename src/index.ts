@@ -2,6 +2,10 @@ import { AppDataSource } from "./data-source"
 const fastify = require('fastify')({logger: true});
 const PORT = parseInt(process.env.FASTIFY_PORT) || 5000;
 
+fastify.register(require("@fastify/cors"), {
+  "Access-Controll-Allow-Origin": "*",
+})
+
 fastify.register(require('@fastify/swagger'), {
     exposeRoute: true,
     routePrefix: '/api-docs',
