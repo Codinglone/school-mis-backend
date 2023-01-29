@@ -14,4 +14,12 @@ export class UserModel {
             ...payload
         })
     }
+
+    static getAllUsers = async(): Promise<any> => {
+        return await userRepo.find({
+            order: {
+                createdAt: 'DESC'
+            }
+        })
+    }
 }
