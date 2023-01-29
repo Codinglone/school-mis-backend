@@ -1,5 +1,5 @@
 import {Type as T} from "@sinclair/typebox";
-import { createUserController } from "../controllers/user.controller";
+import { createUserController, getUsersController } from "../controllers/user.controller";
 
 const createUserSchema = T.Object({
     firstName: T.String(),
@@ -26,11 +26,21 @@ const createUserOpts = {
     schema: {
         body: T.Strict(createUserSchema),
         response: {
-            200: userSchema
+            201: userSchema
         }
     },
     handler: createUserController
 }
 
+const getUsersOpts = {
+    schema: {
+        response: {
+            200: userSchema
+        }
+    }
+}
 
-export {createUserOpts}
+
+
+
+export {createUserOpts, getUsersOpts}
