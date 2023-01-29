@@ -23,8 +23,6 @@ export const getUsersController = async(req, reply) => {
 
 export const loginController = async(req, reply) => {
     try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        req.body.password = hashedPassword;
         const response = await UserModel.loginUser(req.body.email, req.body.password)
         reply.code(200).send(response)
     } catch (error) {
