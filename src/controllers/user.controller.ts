@@ -17,3 +17,12 @@ export const getUsersController = async(req, reply) => {
         reply.code(400).send(error)
     }
 }
+
+export const loginController = async(req, reply) => {
+    try {
+        const response = await UserModel.loginUser(req.body.email, req.body.password)
+        reply.code(200).send(response)
+    } catch (error) {
+        reply.code(400).send(error)
+    }
+}

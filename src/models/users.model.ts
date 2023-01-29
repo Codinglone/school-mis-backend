@@ -23,7 +23,7 @@ export class UserModel {
         })
     }
 
-    static loginUser = async(payload: loginPayload, email: string, password: string):Promise<any> => {
+    static loginUser = async(email: string, password: string):Promise<any> => {
         return await userRepo.findOneBy({
             email,
             password
