@@ -6,3 +6,8 @@ export interface userPayload {
     role: string 
     school: string
 }
+
+export interface loginPayload {
+    email: string 
+    password: string
+}

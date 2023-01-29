@@ -35,9 +35,10 @@ const createUserOpts = {
 const getUsersOpts = {
     schema: {
         response: {
-            200: userSchema
+            200: T.Array(userSchema)
         }
-    }
+    },
+    handler: getUsersController
 }
 
 

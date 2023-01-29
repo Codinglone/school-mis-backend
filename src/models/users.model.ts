@@ -1,6 +1,6 @@
 import { AppDataSource } from "../data-source";
 import { User } from "../entity/User";
-import { userPayload } from "../utils/payloads";
+import { userPayload, loginPayload } from "../utils/payloads";
 
 const userRepo = AppDataSource.getRepository(User);
 
@@ -20,6 +20,13 @@ export class UserModel {
             order: {
                 createdAt: 'DESC'
             }
+        })
+    }
+
+    static loginUser = async(payload: loginPayload, email: string, password: string):Promise<any> => {
+        return await userRepo.findOneBy({
+            email,
+            password
         })
     }
 }
