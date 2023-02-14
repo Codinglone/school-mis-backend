@@ -2,6 +2,7 @@ import { AppDataSource } from "../data-source";
 import { User } from "../entity/User";
 import { userPayload, loginPayload } from "../utils/payloads";
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
 
 const userRepo = AppDataSource.getRepository(User);
 
