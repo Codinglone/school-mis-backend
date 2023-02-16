@@ -20,9 +20,10 @@ const createCategorySchema = T.Object({
 
 const createCategoryOpts = {
     schema: {
-        body: T.Strict(categorySchema),
+        body: T.Strict(createCategorySchema),
         response: {
             201: categorySchema
         }
-    }
+    },
+    handler: createCategoryController
 }
