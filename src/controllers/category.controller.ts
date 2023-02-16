@@ -9,3 +9,11 @@ export const createCategoryController = async(req, reply) => {
         reply.code(400).send(error)
     }
 }
+
+export const getCategoriesController = async(req, reply) => {
+    try {
+        
+    } catch (error) {
+        
+    }
+}
