@@ -1,5 +1,5 @@
 import {Type as T} from "@sinclair/typebox";
-import { createCategoryController } from "../controllers/category.controller";
+import { createCategoryController, getCategoriesController } from "../controllers/category.controller";
 
 
 const categorySchema = T.Object({
@@ -31,7 +31,8 @@ export const createCategoryOpts = {
 export const getCategoriesOpts = {
     schema: {
         response: {
-            200: categorySchema
+            200: T.Array(categorySchema)
         }
-    }
+    },
+    handler: getCategoriesController
 }
