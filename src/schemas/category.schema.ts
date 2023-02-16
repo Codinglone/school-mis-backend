@@ -10,6 +10,11 @@ const categorySchema = T.Object({
     updatedOn: T.Date()
 })
 
+const createCategorySchema = T.Object({
+    categoryName: T.String(),
+    duration: T.String()
+})
+
 
 
 
