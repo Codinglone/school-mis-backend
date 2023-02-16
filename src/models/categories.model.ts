@@ -14,4 +14,12 @@ export class CategoriesModel {
             })
      
     }
+
+    static getCategories = async (): Promise<any> => {
+        return await categoriesRepo.find({
+            order: {
+                registeredOn: 'DESC'
+            }
+        })
+    }
 }
