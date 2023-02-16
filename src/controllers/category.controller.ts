@@ -12,8 +12,9 @@ export const createCategoryController = async(req, reply) => {
 
 export const getCategoriesController = async(req, reply) => {
     try {
-        
+        const response = await CategoriesModel.getCategories()
+        reply.code(200).send(response);
     } catch (error) {
-        
+        reply.code(400).send(error)
     }
 }
