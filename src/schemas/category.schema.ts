@@ -18,7 +18,7 @@ const createCategorySchema = T.Object({
 
 
 
-const createCategoryOpts = {
+export const createCategoryOpts = {
     schema: {
         body: T.Strict(createCategorySchema),
         response: {
