@@ -27,3 +27,11 @@ export const createCategoryOpts = {
     },
     handler: createCategoryController
 }
+
+export const getCategoriesOpts = {
+    schema: {
+        response: {
+            200: categorySchema
+        }
+    }
+}
