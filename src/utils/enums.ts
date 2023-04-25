@@ -4,5 +4,5 @@ export enum userEndpoints {
 }
 
 export enum categoryEndpoints {
-    CATEGORIES = 'categories'
+    CATEGORIES = '/categories'
 }
