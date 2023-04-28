@@ -26,11 +26,7 @@ export const getUsersController = async(req, reply) => {
 export const loginController = async(req, reply) => {
     try {
         const response = await UserModel.loginUser(req.body)
-        // const token = jwt.sign({
-            // email: response.email,
-            // id: response.id
-        // }, process.env.AUTH_SECRET, {expiresIn: '1h'})
-        // reply.code(200).send({token,userId: response.id})
+      
         reply.code(200).send(response)
 
     } catch (error) {
