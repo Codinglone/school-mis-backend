@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 import { AppDataSource } from "../data-source";
 import { User } from "../entity/User";
 import { userPayload, loginPayload } from "../utils/payloads";
@@ -28,15 +30,22 @@ export class UserModel {
     static loginUser = async(payload: loginPayload):Promise<any> => {
         const email = payload.email
         const password = payload.password
-        const foundUser =userRepo.findOneBy({email})
+        const foundUser = await userRepo.findOneBy({email})
         const check = await bcrypt.compare(password, (await foundUser).password);
 
         console.log(check);
 
         if(check){
-            return await userRepo.findOneBy({
-                email
-            })
+            const token = jwt.sign(
+                {
+                    email: foundUser.email,
+                    firstName: foundUser.firstName,
+                    lastName: foundUser.lastName,
+                    role: foundUser.role,
+                    school: foundUser.school,
+                },
+                process.env.AUTH_SECRET
+            )
         }
 
         return null;
