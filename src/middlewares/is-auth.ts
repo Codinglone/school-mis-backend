@@ -3,7 +3,7 @@ import { User } from "../entity/User";
 
 const jwt = require('jsonwebtoken');
 
-const checkauth = (req, res, next) => {
+const checkauth = async (req, res, next) => {
     try {
         const authHeader = req.headers.authorization
         const token = authHeader.substring(7)
@@ -16,6 +16,19 @@ const checkauth = (req, res, next) => {
                 token,
                 process.env.AUTH_SECRET
             )
+            const userId = verifyToken.id
+            const userRepository = AppDataSource.getRepository(User)
+            const findUser = await userRepository.findOneBy({
+                id: userId
+            })
+
+            if(findUser){
+                req.user = findUser
+                next()
+            }
+            else {
+                res.code(401).send({ message: "Token is not valid!" })
+            }
         }
         
     } catch (error) {
