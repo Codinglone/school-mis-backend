@@ -1,5 +1,6 @@
 import {Type as T} from "@sinclair/typebox";
 import { createUserController, getUsersController, loginController } from "../controllers/user.controller";
+import checkauth from "../middlewares/is-auth";
 
 const createUserSchema = T.Object({
     firstName: T.String(),
@@ -38,6 +39,7 @@ const getUsersOpts = {
             200: T.Array(userSchema)
         }
     },
+    preHandler: checkauth,
     handler: getUsersController
 }
 
