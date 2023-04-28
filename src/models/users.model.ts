@@ -46,6 +46,7 @@ export class UserModel {
                 },
                 process.env.AUTH_SECRET
             )
+            return { token }
         }
 
         return null;
