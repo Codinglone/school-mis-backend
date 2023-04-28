@@ -31,7 +31,7 @@ export class UserModel {
         const email = payload.email
         const password = payload.password
         const foundUser = await userRepo.findOneBy({email})
-        const check = await bcrypt.compare(password, (await foundUser).password);
+        const check = await bcrypt.compare(password, foundUser.password);
 
         console.log(check);
 
