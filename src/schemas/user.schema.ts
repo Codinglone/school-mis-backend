@@ -46,12 +46,15 @@ const loginSchema = T.Object({
     password: T.String(),
 })
 
+const tokenSchema = T.Object({
+    token: T.String()
+})
 
 const loginOpts = {
     schema: {
         body: T.Strict(loginSchema),
         response: {
-            200: loginSchema
+            200: tokenSchema
         }
     },
     handler: loginController
