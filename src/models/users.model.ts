@@ -25,10 +25,11 @@ export class UserModel {
         })
     }
 
-    static loginUser = async(email: string, password: string):Promise<any> => {
-
-        const foundUser = userRepo.findOneBy({email})
-        const check = await bcrypt.compare(password, (await foundUser).password);
+    static loginUser = async(payload: loginPayload):Promise<any> => {
+        const email = payload.email
+        const password = payload.password
+        const foundUser =userRepo.findOneBy({email})
+        const check = await bcrypt.compare(payload.password, (await foundUser).password);
 
         console.log(check);
 
