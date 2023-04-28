@@ -25,7 +25,7 @@ export const getUsersController = async(req, reply) => {
 
 export const loginController = async(req, reply) => {
     try {
-        const response = await UserModel.loginUser(req.body.email, req.body.password)
+        const response = await UserModel.loginUser(req.body)
         // const token = jwt.sign({
             // email: response.email,
             // id: response.id
