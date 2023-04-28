@@ -41,8 +41,14 @@ const getUsersOpts = {
     handler: getUsersController
 }
 
+const loginSchema = T.Object({
+    email: T.String(),
+    password: T.String(),
+})
+
 const loginOpts = {
     schema: {
+        body: T.Strict(loginSchema),
         response: {
             200: userSchema
         }
