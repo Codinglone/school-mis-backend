@@ -14,7 +14,7 @@ const courseOpts = {
             201: courseSchema
         }
     },
-    preHandler: upload.fields([{ name: "profile" }]),
+    preHandler: upload.single('profile'),
     handler: createCourseController
 }
 
