@@ -10,6 +10,7 @@
    },
    "dependencies": {
       "@fastify/cors": "^8.2.0",
+      "@fastify/multipart": "^6.0.0",
       "@fastify/swagger": "^7.4.0",
       "@sinclair/typebox": "^0.25.20",
       "bcrypt": "^5.1.0",
