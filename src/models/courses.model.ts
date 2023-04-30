@@ -9,7 +9,8 @@ export class CoursesModel {
         const course = new Courses()
         return await coursesRepo.save({
             ...payload,
-            ...course
+            ...course,
+            profile
         })
     }
 }
