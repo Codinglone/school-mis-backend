@@ -4,7 +4,7 @@ import { coursesPayload } from "../utils/payloads";
 
 const coursesRepo = AppDataSource.getRepository(Courses)
 
-export class coursesModel {
+export class CoursesModel {
     static postCreateCourse = async (payload: coursesPayload): Promise<any> => {
 
     }
