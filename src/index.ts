@@ -3,7 +3,9 @@ const fastify = require('fastify')({logger: true});
 const PORT = parseInt(process.env.FASTIFY_PORT) || 5000;
 
 fastify.register(require("@fastify/cors"), {
-  "Access-Controll-Allow-Origin": "*",
+  methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+  origin: "*",
+  allowedHeaders: "*",
 })
 
 fastify.register(require('@fastify/swagger'), {
