@@ -1,6 +1,7 @@
 import { createCategoryOpts, getCategoriesOpts } from './../schemas/category.schema';
 import { userEndpoints, categoryEndpoints } from "../utils/enums";
 import { createUserOpts, getUsersOpts, loginOpts } from "../schemas/user.schema";
+import { courseOpts } from '../schemas/course.schema';
 
 const usersRoutes = (fastify, opts, done) => {
     fastify.post(userEndpoints.USERS, createUserOpts);
