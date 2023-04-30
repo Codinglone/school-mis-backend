@@ -16,6 +16,7 @@
       "dotenv": "^16.0.3",
       "fastify": "^4.4.0",
       "fastify-multer": "^2.0.3",
+      "fastify-multipart": "^5.4.0",
       "jsonwebtoken": "^9.0.0",
       "nodemon": "^2.0.20",
       "pg": "^8.8.0",

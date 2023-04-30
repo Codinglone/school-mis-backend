@@ -1,7 +1,9 @@
 import { AppDataSource } from "./data-source"
 const fastify = require('fastify')({logger: true});
 const PORT = parseInt(process.env.FASTIFY_PORT) || 5000;
+const multipart = require('fastify-multipart');
 
+fastify.register(multipart, { attachFieldsToBody: true });
 fastify.register(require("@fastify/cors"), {
   methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
   origin: "*",
