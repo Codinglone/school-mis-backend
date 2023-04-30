@@ -16,3 +16,8 @@ export interface categoryPayload {
     categoryName: string 
     duration: string
 }
+
+export interface coursesPayload {
+    name: string 
+    profile: string
+}
