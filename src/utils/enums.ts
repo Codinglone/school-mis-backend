@@ -6,3 +6,7 @@ export enum userEndpoints {
 export enum categoryEndpoints {
     CATEGORIES = '/categories'
 }
+
+export enum courseEndpoints {
+    COURSES = '/courses',
+}
