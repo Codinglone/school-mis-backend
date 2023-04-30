@@ -17,3 +17,5 @@ const courseOpts = {
     preHandler: upload.fields([{ name: "profile" }]),
     handler: createCourseController
 }
+
+export { courseOpts }
