@@ -1,6 +1,7 @@
 import {Type as T} from "@sinclair/typebox";
 import { createUserController, getUsersController, loginController } from "../controllers/user.controller";
 import checkauth from "../middlewares/is-auth";
+import { successController } from "../controllers/success.controller";
 
 const createUserSchema = T.Object({
     firstName: T.String(),
@@ -23,6 +24,10 @@ const userSchema = T.Object({
     updatedAt: T.String()
 })
 
+const successSchema = T.Object({
+    message: T.String()
+})
+
 const createUserOpts = {
     schema: {
         body: T.Strict(createUserSchema),
@@ -41,6 +46,15 @@ const getUsersOpts = {
     },
     preHandler: checkauth,
     handler: getUsersController
+}
+
+const successOpts = {
+    schema: {
+        response: {
+            200: successSchema
+        }
+    },
+    handler: successController
 }
 
 const loginSchema = T.Object({
@@ -65,4 +79,4 @@ const loginOpts = {
 
 
 
-export {createUserOpts, getUsersOpts, loginOpts}
+export {createUserOpts, getUsersOpts, loginOpts, successOpts}
