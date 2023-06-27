@@ -28,7 +28,7 @@ fastify.register(require('./routes/school.routes'), {prefix: 'api/v1'})
 const start = async () => {
   try {
     
-    await fastify.listen({host: host, port: PORT }, function (err, address) {
+    await fastify.listen({host: host, port: 8000 }, function (err, address) {
       if (err) {
         fastify.log.error(err)
         process.exit(1)
