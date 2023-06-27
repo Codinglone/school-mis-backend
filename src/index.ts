@@ -27,7 +27,13 @@ fastify.register(require('./routes/school.routes'), {prefix: 'api/v1'})
 
 const start = async () => {
   try {
-    await fastify.listen({ port:  PORT})
+    
+    await fastify.listen({host: host, port: PORT }, function (err, address) {
+      if (err) {
+        fastify.log.error(err)
+        process.exit(1)
+      }
+    })
     AppDataSource.initialize().then(async () => {
 
       console.log("connected!!")
