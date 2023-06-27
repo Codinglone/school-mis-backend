@@ -22,7 +22,7 @@ fastify.register(require('@fastify/swagger'), {
     }
 })
 
-fastify.register(require('./routes/school.routes'), {prefix: 'api/v1'})
+fastify.register(require('./routes/school.routes'), {prefix: ''})
 
 
 const start = async () => {
